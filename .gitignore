@@ -4,4 +4,5 @@ __pycache__
 venv/
 env
 .drivers/geckodriver.exe
-./ffball_env
+ffball_env/
+C:\Users\Ian Finley\workspace\espn-ffassistant\espn-ffassistant\ffball_env
