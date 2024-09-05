@@ -3,4 +3,5 @@ __pycache__
 *~
 venv/
 env
-./drivers/geckodriver.exe
+.drivers/geckodriver.exe
+./ffball_env
