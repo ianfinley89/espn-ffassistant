@@ -17,8 +17,9 @@ _BENCH_MULTIPLIER = 0.45
 _FLEX_MULTIPLIER = 0.9
 
 # Bye-week penalty (in per-game projected points) per conflicting starter.
-_BYE_SAME_POS = 2.0     # heavy: two startable RBs off in the same week hurts
-_BYE_OTHER_POS = 0.5    # mild: general roster-wide bye congestion
+# Public: lineup.py uses the same constants to score final rosters.
+BYE_SAME_POS = 2.0      # heavy: two startable RBs off in the same week hurts
+BYE_OTHER_POS = 0.5     # mild: general roster-wide bye congestion
 
 
 @dataclass
@@ -77,7 +78,7 @@ def bye_penalty(player, roster, config: LeagueConfig) -> float:
     for s in _likely_starters(roster, config):
         if s.bye != player.bye:
             continue
-        penalty += _BYE_SAME_POS if s.pos == player.pos else _BYE_OTHER_POS
+        penalty += BYE_SAME_POS if s.pos == player.pos else BYE_OTHER_POS
     return penalty
 
 

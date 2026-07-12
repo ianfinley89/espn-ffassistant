@@ -12,6 +12,10 @@ from .value import proj_points_from_rank
 
 _POS_RE = re.compile(r"([A-Za-z/]+?)(\d+)?$")
 
+# Canonical position names (league config / ESPN style). FantasyPros says
+# "DST"; everything downstream expects "D/ST".
+_POS_ALIASES = {"DST": "D/ST"}
+
 
 @dataclass
 class Player:
@@ -34,6 +38,7 @@ def _parse_pos(raw: str):
     if not m:
         return raw, None
     pos, rank = m.group(1), m.group(2)
+    pos = _POS_ALIASES.get(pos, pos)
     return pos, (int(rank) if rank else None)
 
 

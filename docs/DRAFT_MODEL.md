@@ -76,6 +76,12 @@ the prompt" approach, and it grounds the LLM in real numbers.
 
 ## Phase 2 (the real brain): Monte Carlo lookahead
 
+**Implemented:** `draft/lineup.py` (the TeamValue objective), `draft/simulate.py`
+(DraftState, snake order, ADP-noise opponent model, rollout policies,
+`mc_recommend`, survival probabilities), `draft/demo_mc.py` (side-by-side
+greedy-vs-lookahead demo; ~150 sims/candidate runs in a few seconds, well
+inside a pick clock).
+
 Replace the `need_multiplier` heuristic with the genuine article: simulate the
 rest of the draft and measure each candidate's *actual* effect on final
 `TeamValue`.
